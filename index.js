@@ -19,7 +19,7 @@ async function postData(){
     };
 
     try{
-        let res = await axios.post("http://localhost:3000/user",obj);
+        let res = await axios.post("https://render-server-5ih2.onrender.com/cardDetails",obj);
         alert("submitted");
         getData()
         form.reset();
@@ -31,7 +31,7 @@ async function postData(){
 
 async function getData(){
     try{
-        let res = await axios.get("http://localhost:3000/user");
+        let res = await axios.get("https://render-server-5ih2.onrender.com/cardDetails");
         console.log(res.data)
         arr = res.data;
         displayData();
@@ -87,7 +87,7 @@ function displayData() {
 // <============delete=====================>
     async function deleteData(id){
         try{
-            let res = await axios.delete(`http://localhost:3000/user/${id}`)
+            let res = await axios.delete(`https://render-server-5ih2.onrender.com/cardDetails/${id}`)
             alert("deleted");
             getData();
                 } catch (error){
@@ -123,7 +123,7 @@ function displayData() {
             photo: document.getElementById("photo").value,
         };
         try{
-            let res = await axios.patch(`http://localhost:3000/user/${currentid}`,updateobj);
+            let res = await axios.patch(`https://render-server-5ih2.onrender.com/cardDetails/${currentid}`,updateobj);
             alert("updated");
             getData()
             state = false;
