@@ -15,7 +15,7 @@ async function postData(){
         email: document.getElementById("email").value,
         course: document.getElementById("course").value,
         mobile: document.getElementById("mobile").value,
-        photo: document.getElementById("photo").value,
+        photo: document.getElementById("photo").value
     };
 
     try{
@@ -44,7 +44,7 @@ async function getData(){
 
 
 function displayData() {
-    cont.innerHtml= ""
+    cont.innerHTML= ""
     arr.map((ele) =>{
         
         let div = document.createElement("div");
@@ -120,14 +120,14 @@ function displayData() {
             email: document.getElementById("email").value,
             course: document.getElementById("course").value,
             mobile: document.getElementById("mobile").value,
-            photo: document.getElementById("photo").value,
+            photo: document.getElementById("photo").value
         };
         try{
             let res = await axios.patch(`https://render-server-5ih2.onrender.com/cardDetails/${currentid}`,updateobj);
             alert("updated");
             getData()
+            form.reset();
             state = false;
-            form.reset()
         } catch (error) {
             console.log(error);
         }
